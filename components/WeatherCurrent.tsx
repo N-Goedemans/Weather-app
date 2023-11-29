@@ -75,8 +75,8 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
                             <p>{day?.day?.maxtemp_c}°C</p>
                           </div>
                           <div className="flex items-center">
-                          <FaLongArrowAltDown />
-                          <p>{day?.day?.mintemp_c}°C</p>
+                            <FaLongArrowAltDown />
+                            <p>{day?.day?.mintemp_c}°C</p>
                           </div>
                         </div>
                       </div>
@@ -87,7 +87,33 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
           </div>
         </div>
-        <div className="pt-52">
+        <div className="flex justify-center py-6">
+          <div className="flex gap-3 overflow-x-auto w-2/4 pb-4">
+            {WeatherData?.forecast?.forecastday[0]?.hour.map((hour: any) => (
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-col justify-center pt-16">
+                  <div className="flex flex-row items-center justify-between">
+                    <div className="bg-white/30 rounded-lg p-3 flex flex-col items-center w-24">
+                      <div>{hour?.time?.split(" ")[1].split(":")[0]}:00</div>
+                      <div className="py-1">
+                        <img
+                          src={hour?.condition?.icon}
+                          alt="Weather Icon"
+                          height={40}
+                          width={40}
+                        />
+                      </div>
+                      <div>
+                        <p>{hour?.temp_c}°C</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="pt-8">
           <div className="pb-4 text-xl font-semibold">
             <h2>Weather Details</h2>
           </div>

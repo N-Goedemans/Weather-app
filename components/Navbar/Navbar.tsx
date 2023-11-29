@@ -40,10 +40,10 @@ export default function Navbar( {setData}: { setData: any }) {
 
   return (
     <>
-      <div className=" bg-gradient-to-r from-blue-500 to-blue-300">
-        <div className=" bg-white/20 py-10">
+      <div>
+        <div className="pt-10">
           <div className="flex justify-center">
-            <form className="flex w-1/6 border-b-2 hover:scale-105 duration-300">
+            <form className="flex w-3/12 border-b-2 hover:scale-105 duration-300">
               <input
                 value={city}
                 type="text"
