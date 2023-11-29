@@ -8,6 +8,8 @@ import { IoSunny } from "react-icons/io5";
 import { WiHumidity } from "react-icons/wi";
 import { FiSunrise } from "react-icons/fi";
 import { FiSunset } from "react-icons/fi";
+import { FaLongArrowAltUp } from "react-icons/fa";
+import { FaLongArrowAltDown } from "react-icons/fa";
 
 export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
   if (WeatherData) {
@@ -27,8 +29,8 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
                 <div>
                   <img
                     src={WeatherData?.current?.condition?.icon}
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
                     alt="Weather Icon"
                   />
                 </div>
@@ -55,17 +57,27 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
                 <div className="flex flex-row justify-between">
                   <div className="flex flex-col justify-center pt-16">
                     <div className="flex flex-row items-center justify-between">
-                      <div className="bg-white/40 rounded-lg p-4 items-center">
+                      <div className="bg-white/40 rounded-lg p-4 flex flex-col items-center w-36">
                         <div>
+                          {day?.date?.split("-")[2]}/{day?.date?.split("-")[1]}
+                        </div>
+                        <div className="p-2">
                           <img
                             src={day?.day?.condition?.icon}
-                            height={50}
-                            width={50}
+                            height={60}
+                            width={60}
                             alt="Weather Icon"
                           />
                         </div>
-                        <div>
-                          <h3 className="text-2xl">{day?.day?.avgtemp_c}°C</h3>
+                        <div className="text-lg pt-4">
+                          <div className="flex items-center">
+                            <FaLongArrowAltUp />
+                            <p>{day?.day?.maxtemp_c}°C</p>
+                          </div>
+                          <div className="flex items-center">
+                          <FaLongArrowAltDown />
+                          <p>{day?.day?.mintemp_c}°C</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -81,7 +93,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
           </div>
           <div className="grid grid-cols-4 gap-4 text-black">
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div className="">
                   <h3 className="font-semibold">Feels Like</h3>
                   <h3 className="text-left">
@@ -95,7 +107,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Wind Direction</h3>
                   <h3 className="text-left">
@@ -109,7 +121,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Wind Speed</h3>
                   <h3 className="text-left">
@@ -123,7 +135,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Visibility</h3>
                   <h3 className="text-left">
@@ -137,7 +149,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">UV Radiation</h3>
                   <h3 className="text-left">{WeatherData?.current?.uv}</h3>
@@ -149,7 +161,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Humidity</h3>
                   <h3 className="text-left">
@@ -157,13 +169,13 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
                   </h3>
                 </div>
                 <div>
-                  <WiHumidity size={30} />
+                  <WiHumidity size={40} />
                 </div>
               </div>
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Sunrise</h3>
                   <h3 className="text-left">
@@ -177,7 +189,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             </div>
 
             <div className=" bg-white/70 p-4 rounded-xl">
-              <div className="flex items-center justify-evenly">
+              <div className="flex items-center justify-between px-8">
                 <div>
                   <h3 className="font-semibold">Sunset</h3>
                   <h3 className="text-left">

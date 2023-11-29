@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Navbar( {setData}: { setData: any }) {
@@ -34,6 +34,7 @@ export default function Navbar( {setData}: { setData: any }) {
       setError("");
     } catch (error) {
       setError("City not found");
+      console.log(error);
     }
   };
 
@@ -51,7 +52,7 @@ export default function Navbar( {setData}: { setData: any }) {
                 onChange={handleChange}
               ></input>
               <div className="hover:cursor-pointer">
-                <AiOutlineSearch size={25} />
+                <AiOutlineSearch size={20} />
               </div>
             </form>
           </div>
