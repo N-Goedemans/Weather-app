@@ -20,7 +20,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
         <div className="flex justify-center h-screen pt-64">
           <div className="flex flex-col items-center">
             <div className="pb-12">
-              <div className="bg-white/25 p-4 rounded-xl shadow-lg">
+              <div className="bg-white/25 p-4 rounded-xl shadow-lg animate-bounce">
                 <FaLongArrowAltUp size={40}/>
               </div>
             </div>
