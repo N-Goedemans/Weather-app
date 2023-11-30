@@ -17,8 +17,13 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
   } else {
     return (
       <>
-        <div className="flex justify-center h-screen items-center">
-          <div className="flex flex-col text-center">
+        <div className="flex justify-center h-screen pt-64">
+          <div className="flex flex-col items-center">
+            <div className="pb-12">
+              <div className="bg-white/25 p-4 rounded-xl shadow-lg">
+                <FaLongArrowAltUp size={40}/>
+              </div>
+            </div>
             <div className="font-semibold text-4xl bg-white/30 p-5 rounded-xl shadow-lg">
               <h3>Search for a city!</h3>
             </div>
