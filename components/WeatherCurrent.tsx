@@ -12,19 +12,40 @@ import { FaLongArrowAltUp } from "react-icons/fa";
 import { FaLongArrowAltDown } from "react-icons/fa";
 
 export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
-  if (WeatherData) {
+  if (WeatherData?.hasOwnProperty("current")) {
     console.log(WeatherData);
+  } else {
+    return (
+      <>
+        <div className="flex justify-center h-screen items-center">
+          <div className="flex flex-col text-center">
+            <div className="font-semibold text-4xl bg-white/30 p-5 rounded-xl shadow-lg">
+              <h3>Search for a city!</h3>
+            </div>
+            <div className="pt-3">
+              <p>Made by Niek Goedemans</p>
+            </div>
+          </div>
+        </div>
+      </>
+    );
   }
   return (
     <>
-      <div className="flex flex-col p-10 px-40">
+      <div className="flex flex-col p-10 px-40 h-screen">
         <div className="flex justify-evenly">
           <div className="flex justify-between">
-            <div className="flex flex-col justify-center pt-16">
+            <div className="flex flex-col justify-center">
               <div className="flex flex-row items-center justify-between">
                 <div>
                   <h3 className="text-3xl">Today</h3>
-                  <h1>date today</h1>
+                  <h1>
+                    {WeatherData?.forecast?.forecastday[0]?.date?.split("-")[2]}
+                    /
+                    {WeatherData?.forecast?.forecastday[0]?.date?.split("-")[1]}
+                    /
+                    {WeatherData?.forecast?.forecastday[0]?.date?.split("-")[0]}
+                  </h1>
                 </div>
                 <div>
                   <img

@@ -8,8 +8,8 @@ export default function page() {
   const [data, setData] = useState({});
   return (
     <>
-      <div className="h-screen bg-gradient-to-r from-blue-500 to-blue-200">
-        <div className="w-full h-full">
+      <div className="bg-gradient-to-r from-blue-500 to-blue-200">
+        <div>
           <Navbar setData={setData} />
           <WeatherCurrent WeatherData={data} />
         </div>

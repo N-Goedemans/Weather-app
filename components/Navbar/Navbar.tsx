@@ -3,7 +3,7 @@ import React from "react";
 import { useState, ChangeEvent } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 
-export default function Navbar( {setData}: { setData: any }) {
+export default function Navbar({ setData }: { setData: any }) {
   const [error, setError] = useState("");
   const [city, setCity] = useState("");
 
@@ -15,11 +15,12 @@ export default function Navbar( {setData}: { setData: any }) {
       setCity("");
     }
     setCity(inputValue);
-    getWeather(inputValue);
+    if (inputValue.length > 3) {
+      getWeather(inputValue);
+    }
   };
 
   const APIKEY = "53aee10655dc437a8eb212547231711";
-  
 
   const getWeather = async (city: string) => {
     const url = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}&days=7&aqi=yes&alerts=yes`;
@@ -30,7 +31,7 @@ export default function Navbar( {setData}: { setData: any }) {
       }
       const jsonData = await response.json();
       setData(jsonData);
-      console.log("data set")
+      console.log("data set");
       setError("");
     } catch (error) {
       setError("City not found");
@@ -40,7 +41,7 @@ export default function Navbar( {setData}: { setData: any }) {
 
   return (
     <>
-      <div>
+      <div className="h-full">
         <div className="pt-10">
           <div className="flex justify-center">
             <form className="flex w-3/12 border-b-2 hover:scale-105 duration-300">
