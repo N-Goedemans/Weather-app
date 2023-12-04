@@ -23,7 +23,7 @@ export default function Navbar({ setData }: { setData: any }) {
   const APIKEY = "53aee10655dc437a8eb212547231711";
 
   const getWeather = async (city: string) => {
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}&days=7&aqi=yes&alerts=yes`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${APIKEY}&q=${city}&days=7&aqi=yes&alerts=yes`;
     try {
       const response = await fetch(url);
       if (!response.ok) {
