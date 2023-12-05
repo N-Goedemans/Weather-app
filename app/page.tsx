@@ -8,7 +8,7 @@ export default function page() {
   const [data, setData] = useState({});
   return (
     <>
-      <div className="bg-gradient-to-r from-blue-500 to-blue-200">
+      <div className="">
         <div>
           <Navbar setData={setData} />
           <WeatherCurrent WeatherData={data} />

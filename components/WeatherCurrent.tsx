@@ -17,7 +17,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
   } else {
     return (
       <>
-        <div className="flex justify-center h-screen pt-64">
+        <div className="flex justify-center pt-64">
           <div className="flex flex-col items-center">
             <div className="pb-12">
               <div className="bg-white/25 p-4 rounded-xl shadow-lg animate-bounce">
@@ -37,7 +37,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
   }
   return (
     <>
-      <div className="flex flex-col p-10 sm:px-16 md:px-28 lg:px-48 h-screen">
+      <div className="flex flex-col p-10 sm:px-16 md:px-28 lg:px-48">
         <div className="flex flex-col sm:flex-row sm:justify-evenly items-center">
           {/* Current Weather */}
           <div className="flex justify-between">
@@ -117,7 +117,7 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
         </div>
         {/* Weather Forecast hours */}
         <div className="flex justify-center py-6">
-          <div className="flex gap-3 overflow-x-auto w-5/6 md:w-2/3 lg:w-3/6 pb-4">
+          <div className="flex gap-3 overflow-x-auto w-11/12 md:w-2/3 lg:w-3/6 pb-2">
             {WeatherData?.forecast?.forecastday[0]?.hour.map((hour: any) => (
               <div className="flex flex-row justify-between">
                 <div className="flex flex-col justify-center pt-16">
@@ -147,14 +147,14 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
           <div className="pb-4 text-xl font-semibold">
             <h2>Weather Details</h2>
           </div>
-          <div className="flex overflow-y-auto md:grid md:grid-cols-2 min-[1024px]:grid-cols-3 min-[1386px]:grid min-[1386px]:grid-cols-4 gap-4 text-black">
-            <div className=" bg-white/70 p-4 rounded-xl">
+          <dl className="flex overflow-y-auto h-64 lg:h-auto pr-2 gap-4 flex-col md:overflow-hidden md:grid md:grid-cols-2 min-[1024px]:grid-cols-3 min-[1386px]:grid min-[1386px]:grid-cols-4 lg:overflow-hidden text-black">
+            <div className=" bg-white/70 p-4 rounded-xl ">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Feels Like</h3>
-                  <h3 className="text-left">
+                  <dd>Feels Like</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.current?.feelslike_c}°C
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <FaTemperatureThreeQuarters size={30} />
@@ -165,10 +165,10 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             <div className=" bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Wind Direction</h3>
-                  <h3 className="text-left">
+                  <dd>Wind Direction</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.current?.wind_dir}
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <ImCompass size={30} />
@@ -176,13 +176,13 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
               </div>
             </div>
 
-            <div className=" bg-white/70 p-4 rounded-xl">
+            <div className="bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Wind Speed</h3>
-                  <h3 className="text-left">
+                  <dd>Wind Speed</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.current?.wind_kph} km/h
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <LuWind size={30} />
@@ -190,13 +190,13 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
               </div>
             </div>
 
-            <div className=" bg-white/70 p-4 rounded-xl">
+            <div className="bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Visibility</h3>
-                  <h3 className="text-left">
+                  <dd>Visibility</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.current?.vis_km} km
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <FaRegEye size={30} />
@@ -207,8 +207,8 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             <div className=" bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">UV Radiation</h3>
-                  <h3 className="text-left">{WeatherData?.current?.uv}</h3>
+                  <dd>UV Radiation</dd>
+                  <dt className="text-left font-semibold text-xl">{WeatherData?.current?.uv}</dt>
                 </div>
                 <div>
                   <IoSunny size={30} />
@@ -216,13 +216,13 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
               </div>
             </div>
 
-            <div className=" bg-white/70 p-4rounded-xl">
+            <div className=" bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Humidity</h3>
-                  <h3 className="text-left">
+                  <dd>Humidity</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.current?.humidity}
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <WiHumidity size={40} />
@@ -233,10 +233,10 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             <div className=" bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Sunrise</h3>
-                  <h3 className="text-left">
+                  <dd>Sunrise</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.forecast?.forecastday[0]?.astro?.sunrise}
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <FiSunrise size={30} />
@@ -247,17 +247,17 @@ export default function WeatherCurrent({ WeatherData }: { WeatherData: any }) {
             <div className=" bg-white/70 p-4 rounded-xl">
               <div className="flex items-center justify-between ">
                 <div>
-                  <h3 className="font-semibold">Sunset</h3>
-                  <h3 className="text-left">
+                  <dd>Sunset</dd>
+                  <dt className="text-left font-semibold text-xl">
                     {WeatherData?.forecast?.forecastday[0]?.astro?.sunset}
-                  </h3>
+                  </dt>
                 </div>
                 <div>
                   <FiSunset size={30} />
                 </div>
               </div>
             </div>
-          </div>
+          </dl>
         </div>
       </div>
     </>
